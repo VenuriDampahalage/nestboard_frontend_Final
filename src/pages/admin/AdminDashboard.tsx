@@ -69,12 +69,13 @@ export function AdminDashboard() {
     "there"
 
   const {
-    data: properties,
+    data: rawProperties,
     isLoading: propertiesLoading,
     isError: propertiesError,
   } = useProperties()
+  const properties = Array.isArray(rawProperties) ? rawProperties : []
   const propertyIds = useMemo(
-    () => properties?.map((p) => p.id) ?? [],
+    () => properties.map((p) => p.id),
     [properties],
   )
 

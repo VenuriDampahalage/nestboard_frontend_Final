@@ -1,20 +1,18 @@
 import { lazy, Suspense } from "react"
-import { RemoteErrorBoundary } from "./RemoteErrorBoundary"
 
-const MapPage = lazy(() => import("map_mfe/MapPage"))
+const MapPage = lazy(() => import("@/pages/map/MapPage"))
 
 export function MapRoute() {
   return (
-    <RemoteErrorBoundary name="Map module">
-      <Suspense
-        fallback={
-          <div className="text-muted-foreground px-8 py-10">
-            Loading map module…
-          </div>
-        }
-      >
-        <MapPage />
-      </Suspense>
-    </RemoteErrorBoundary>
+    <Suspense
+      fallback={
+        <div className="flex h-screen items-center justify-center text-sm text-gray-500">
+          Loading map module…
+        </div>
+      }
+    >
+      <MapPage />
+    </Suspense>
   )
 }
+
