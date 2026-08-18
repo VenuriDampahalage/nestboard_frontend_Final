@@ -4,7 +4,7 @@ import L from "leaflet"
 import "leaflet/dist/leaflet.css"
 import { useProperties } from "@/hooks/useProperties"
 import type { Property } from "@/types/property"
-import { Building2, Home as HouseIcon, Hotel, MapPin, Star } from "lucide-react"
+import { MapPin, Star } from "lucide-react"
 
 // Fix default leaflet icon issue
 delete (L.Icon.Default.prototype as any)._getIconUrl
