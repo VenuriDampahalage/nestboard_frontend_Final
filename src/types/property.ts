@@ -30,3 +30,33 @@ export type PropertyDetail = {
   image: string
   rooms: Room[]
 }
+
+export type SortByOption = "price" | "rating" | "recency"
+export type SortOrderOption = "asc" | "desc"
+
+export type PropertyFilterParams = {
+  search?: string
+  type?: Property["type"] | "All"
+  city?: string
+  minPrice?: number | string
+  maxPrice?: number | string
+  minRating?: number | string
+  sortBy?: SortByOption
+  sortOrder?: SortOrderOption
+  page?: number
+  limit?: number
+}
+
+export type PaginationMetadata = {
+  page: number
+  limit: number
+  total: number
+  totalPages: number
+  hasMore?: boolean
+}
+
+export type PaginatedPropertiesResponse = {
+  data: Property[]
+  pagination: PaginationMetadata
+}
+
