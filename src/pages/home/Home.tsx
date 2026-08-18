@@ -13,7 +13,8 @@ export function Home() {
   // >("All")
   const searchQuery = useUIStore((state) => state.searchQuery)
   const activeCategory = useUIStore((state) => state.activeCategory)
-  const { data: properties = [], isLoading, isError } = useProperties()
+  const { data: rawProperties, isLoading, isError } = useProperties()
+  const properties = Array.isArray(rawProperties) ? rawProperties : []
   const filterBySearch = (property: Property) => {
     return (
       searchQuery === "" ||
